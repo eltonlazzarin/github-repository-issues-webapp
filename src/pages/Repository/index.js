@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import api from '../../services/api';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import api from "../../services/api";
 
-import Container from '../../components/Container';
-import { Loading, Owner, IssueList, IssueFilter, PageActions } from './styles';
+import Container from "../../components/Container";
+import { Loading, Owner, IssueList, IssueFilter, PageActions } from "./styles";
 
 export default class Repository extends Component {
   static propTypes = {
     match: PropTypes.shape({
       params: PropTypes.shape({
-        repository: PropTypes.string,
-      }),
-    }).isRequired,
+        repository: PropTypes.string
+      })
+    }).isRequired
   };
 
   state = {
@@ -20,12 +20,12 @@ export default class Repository extends Component {
     issues: [],
     loading: true,
     filters: [
-      { state: 'all', label: 'All', active: true },
-      { state: 'open', label: 'Open', active: false },
-      { state: 'closed', label: 'Closed', active: false },
+      { state: "all", label: "All", active: true },
+      { state: "open", label: "Open", active: false },
+      { state: "closed", label: "Closed", active: false }
     ],
     filterIndex: 0,
-    page: 1,
+    page: 1
   };
 
   async componentDidMount() {
@@ -39,15 +39,15 @@ export default class Repository extends Component {
       api.get(`/repos/${repoName}/issues`, {
         params: {
           state: filters.find(f => f.active).state,
-          per_page: 5,
-        },
-      }),
+          per_page: 5
+        }
+      })
     ]);
 
     this.setState({
       repository: repository.data,
       issues: issues.data,
-      loading: false,
+      loading: false
     });
   }
 
@@ -61,8 +61,8 @@ export default class Repository extends Component {
       params: {
         state: filters[filterIndex].state,
         per_page: 5,
-        page,
-      },
+        page
+      }
     });
 
     this.setState({ issues: response.data });
@@ -76,7 +76,7 @@ export default class Repository extends Component {
   handlePage = async action => {
     const { page } = this.state;
     await this.setState({
-      page: action === 'back' ? page - 1 : page + 1,
+      page: action === "back" ? page - 1 : page + 1
     });
     this.loadIssues();
   };
@@ -88,7 +88,7 @@ export default class Repository extends Component {
       issues,
       filters,
       filterIndex,
-      page,
+      page
     } = this.state;
 
     if (loading) {
@@ -135,12 +135,12 @@ export default class Repository extends Component {
           <button
             type="button"
             disabled={page < 2}
-            onClick={() => this.handlePage('back')}
+            onClick={() => this.handlePage("back")}
           >
-            Previus
+            Previous
           </button>
           <span>Page {page}</span>
-          <button type="button" onClick={() => this.handlePage('next')}>
+          <button type="button" onClick={() => this.handlePage("next")}>
             Next
           </button>
         </PageActions>
