@@ -16,7 +16,7 @@
   
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/eltonlazzarin/github-repository-issues-webapp">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/eltonlazzarin/github-repository-issues-webapp">
+  <img alt="GitHub" src="https://img.shields.io/github/license/eltonlazzarin/github-repository-issues-webapp">>
 
 ### :rocket: Frontend Technologies (WebApp)
 
