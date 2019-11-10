@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  Giithub repository issues webapp é is used to relate the number of issues open in a given issues in GitHub.
+  Github repository issues webapp é is used to relate the number of issues open in a given issues in GitHub.
 </h4>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/eltonlazzarin/github-repository-issues-webapp">
@@ -16,7 +16,7 @@
   
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/eltonlazzarin/github-repository-issues-webapp">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/eltonlazzarin/github-repository-issues-webapp">>
+  <img alt="GitHub" src="https://img.shields.io/github/license/eltonlazzarin/github-repository-issues-webapp">
 
 ### :rocket: Frontend Technologies (WebApp)
 
