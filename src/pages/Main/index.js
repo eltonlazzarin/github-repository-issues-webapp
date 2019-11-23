@@ -12,10 +12,8 @@ export default class Main extends Component {
     newRepo: '',
     repositories: [],
     loading: false,
-    error: null,
   };
 
-  // Carregar os dados do localStorage
   componentDidMount() {
     const repositories = localStorage.getItem('repositories');
 
@@ -24,7 +22,6 @@ export default class Main extends Component {
     }
   }
 
-  // Salvar os dados do localStorage
   componentDidUpdate(_, prevState) {
     const { repositories } = this.state;
 
@@ -34,63 +31,52 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value, error: null });
+    this.setState({ newRepo: e.target.value });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
 
-    this.setState({ loading: true, error: false });
+    this.setState({ loading: true });
 
-    try {
-      const { newRepo, repositories } = this.state;
+    const { newRepo, repositories } = this.state;
 
-      if (newRepo === '') throw 'Você precisa indicar um repositório';
+    const response = await api.get(`/repos/${newRepo}`);
 
-      const hasRepo = repositories.find(r => r.name === newRepo);
+    const data = {
+      name: response.data.full_name,
+    };
 
-      if (hasRepo) throw 'Repositório duplicado';
-
-      const response = await api.get(`/repos/${newRepo}`);
-
-      const data = {
-        name: response.data.full_name,
-      };
-
-      this.setState({
-        repositories: [...repositories, data],
-        newRepo: '',
-      });
-    } catch (error) {
-      this.setState({ error: true });
-    } finally {
-      this.setState({ loading: false });
-    }
+    this.setState({
+      repositories: [...repositories, data],
+      newRepo: '',
+      loading: false,
+    });
   };
 
   render() {
-    const { newRepo, repositories, loading, error } = this.state;
+    const { newRepo, loading, repositories } = this.state;
 
     return (
       <Container>
         <h1>
           <FaGithubAlt />
-          Repositories
+          Repositorios
         </h1>
 
-        <Form onSubmit={this.handleSubmit} error={error}>
+        <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Add repository"
+            placeholder="Adicionar repositório"
             value={newRepo}
             onChange={this.handleInputChange}
           />
 
           <SubmitButton loading={loading}>
             {loading ? (
-              <FaSpinner color="#FFF" size={14} />
+              <FaSpinner color="#fff" size={14} />
             ) : (
-              <FaPlus color="#FFF" size={14} />
+              <FaPlus color="#fff" size={14} />
             )}
           </SubmitButton>
         </Form>
@@ -100,7 +86,7 @@ export default class Main extends Component {
             <li key={repository.name}>
               <span>{repository.name}</span>
               <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                Details
+                Detalhes
               </Link>
             </li>
           ))}
