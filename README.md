@@ -20,7 +20,7 @@
 
 ### :rocket: Frontend Technologies (WebApp)
 
-<img alt="GitHub Issues" src="https://github.com/eltonlazzarin/github-repository-issues-webapp/blob/master/pageswebapp.gif">
+<img alt="GitHub Issues" src="https://github.com/eltonlazzarin/github-repository-issues-webapp/blob/master/webapp.gif">
 
 This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/bootcamp) with the following technologies:
 
@@ -55,4 +55,3 @@ This project is under the MIT license. See the [LICENSE](https://github.com/elto
 ---
 
 Made with ♥ by Elton Lazzarin :wave: [Get in touch!](https://www.linkedin.com/in/eltonlazzarin/)
-
