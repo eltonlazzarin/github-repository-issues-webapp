@@ -18,7 +18,7 @@
 
   <img alt="GitHub" src="https://img.shields.io/github/license/eltonlazzarin/github-repository-issues-webapp">
 
-### :rocket: Frontend Technologies (WebApp)
+## :rocket: Frontend Technologies (WebApp)
 
 <img alt="GitHub Issues" src="https://github.com/eltonlazzarin/github-repository-issues-webapp/blob/master/webapp.gif">
 
@@ -48,7 +48,7 @@ $ yarn
 $ yarn start
 ```
 
-### :memo: License
+## :memo: License
 
 This project is under the MIT license. See the [LICENSE](https://github.com/eltonlazzarin/github-repository-issues-webapp/blob/master/LICENSE) for more information.
 
